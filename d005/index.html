@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Desafio 005</title>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <button onclick="conversor()">
+        Converter
+    </button>
+    <p>Clique no botão acima para iniciar.</p>
+    <h1 id="resultado"></h1>
+    <div id="medidas">
+        
+    </div>
+    <script>    
+        function conversor() {
+            distancia = Number.parseFloat(window.prompt('Digite uma distância em metros (m)'))
+
+            km = distancia / 1000
+            hm = distancia / 100
+            dam = distancia /10
+            dm = distancia  * 10
+            cm = distancia * 100
+            mm = distancia * 1000
+
+            document.getElementById("resultado").innerHTML = `A distância de ${distancia} metros, corresponde a...`
+            document.getElementById("medidas").innerHTML = `${km} Km <br> ${hm} Hm <br> ${dam} Dam <br> ${dm} dm <br> ${cm} cm <br> ${mm} mm`
+        }   
+    </script>
+</body>
+</html>
