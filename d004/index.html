@@ -14,16 +14,18 @@
     </button>
     <script>
         function troco() {
+            // pergunta e armazena os dados
             var nome = window.prompt('Que produto você está comprando?')
             var preco = Number(window.prompt(`Quanto custa ${nome} que você está comprando?`))
             var dinheiro = Number(window.prompt(`Qual foi o valor que você deu para pagar ${nome}?`))
-
+            
+            // faz o cálculo do troco e converte as unidades em BRL
             var troco = dinheiro - preco
             var precobr = preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
             var dinheirobr = dinheiro.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
             var trocobr = troco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
             
-
+            // mostra o resultado na tela através de um alerta
             window.alert(`Você comprou ${nome} que custou ${precobr}.\nDeu ${dinheirobr} em dinheiro e vai receber ${trocobr} de troco.\nVolte Sempre!`)
         }
     </script>

@@ -13,11 +13,13 @@
         Antecessor e Sucessor
     </button>
     <script>
+        // pede um número através de um prompt e faz o cálculo de antecessor e sucessor desse número
         function Calculo() {
             var numero = Number(window.prompt('Digite um número qualquer'))
             var antecessor = numero - 1
             var sucessor = numero + 1
 
+            // mostra o resultado através de um alerta
             window.alert (
                 `Antes de ${numero}, temos o número ${antecessor}.\nDepois de ${numero}, temos o número ${sucessor}.`
                 )
