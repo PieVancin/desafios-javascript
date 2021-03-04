@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 007</title>
+    <style>
+        button {
+            min-height: 4rem;
+            min-width: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor R$ &rarr; US$</h1>
+    <button onclick="converter()">
+        Converter
+    </button>
+    <p id="resultado"></p>
+    <script>
+        // pergunta pelo valor atual do dólar
+        var cotação = Number(window.prompt('Antes de mais nada. Quanto está a cotação do dólar agora?'))
+
+        // faz a conversão de real para dólar
+        function converter() {
+            var reais = Number(window.prompt('Quantos R$ você tem na sua carteira?'))
+            var dolar = reais / cotação
+
+            // imprime na página HTML o resultado
+            document.getElementById("resultado").innerHTML = `Com os ${reais.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})} que você tem na carteira, consegue comprar ${dolar.toLocaleString('en-us', {style: 'currency', currency: 'USD'})}`
+        }
+    </script>
+</body>
+</html>
