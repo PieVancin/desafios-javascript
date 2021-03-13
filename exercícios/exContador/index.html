@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Exercício Horários</title>
+</head>
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+    <section>
+        <div>
+            <form onsubmit="contar()">
+                <label for="inicio:">Início: </label> 
+                <input type="text" name="inicio" id="inicio"><br>
+                <label for="fim">Fim: </label>
+                <input type="text" name="fim" id="fim"><br>
+                <label for="passo">Passo:</label>
+                <input type="text" name="passo" id="passo"><br>
+                <input type="submit" value="Contar">
+            </form>
+        </div>
+        <div id="resultado">
+            Preparando contagem...
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Pierre Vancin</p>
+    </footer>
+</body>
+</html>
