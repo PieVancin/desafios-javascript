@@ -1,6 +1,3 @@
-
-
-
 function adicionar() {
     let res = document.querySelector("#num")
     let lista = document.getElementById("lista")
