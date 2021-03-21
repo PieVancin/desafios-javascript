@@ -4,10 +4,22 @@ let opt = document.querySelector("#lista")
 let numero = document.getElementById("num")
 let numeros = []
 
-function adicionar() {
+function isInRange() {
     let num = Number(numero.value)
-    opt.innerHTML += `<option value="${num}">${num}</option>`
-    numeros.push(`${num}`)
+    if (num > 0 && num <= 100)
+    return true
+}
+
+function adicionar() {
+    if (isInRange(true)) {
+        let num = Number(numero.value)
+        opt.innerHTML += `<option value="${num}">${num}</option>`
+        numeros.push(`${num}`)
+    }
+    else {
+        window.alert("Digite um numero de 1 a 100!")
+    }
+    
 }
 
 function finalizar() {
