@@ -6,30 +6,20 @@ let numeros = []
 let sum = 0
 
 // checa se o número digitado já existe na array
-function isDuplicate() {
-    let num = Number(numero.value)
-    if (numeros.includes(num)) {
+function isDuplicate(n, l) {
+    if (l.indexOf(Number(n)) != -1) {
         return true
-    }
-}
-
-// checa se o que foi digitado é um número
-function isNumber() {
-    if (numero.value == "") {
-        window.alert("Valor inválido!")
+    } else {    
         return false
-    } else {
-        return true
     }
 }
 
 // checa se o número está entre 1 e 100
-function isInRange() {
+function isInRange(n) {
     let num = Number(numero.value)
     if (num > 0 && num <= 100) {
         return true
-    } else {
-        window.alert("Digite um numero de 1 a 100!")
+    } else { 
         return false
     }
 }
@@ -37,10 +27,13 @@ function isInRange() {
 // imprime o número digitado na lista html e adiciona na array
 function adicionar() {
     let num = Number(numero.value)
-    if (isNumber() == true && isInRange() == true) {      
+    if (isInRange(numero.value) && !isDuplicate(numero.value, numeros)) {      
         opt.innerHTML += `<option value="${num}">Valor ${num} adicionado.</option>`
+        res.innerHTML += `${isDuplicate(numero.value, numeros)}`
         numeros.push(`${num}`)
-    } 
+    } else {
+        window.alert("Erro: Valor inválido ou já encontrado na lista. Digite um numero de 1 a 100!")
+    }
 }
  
 function finalizar() {
