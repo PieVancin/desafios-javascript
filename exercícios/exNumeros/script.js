@@ -5,6 +5,7 @@ let numero = document.getElementById("num")
 let numeros = []
 let sum = 0
 
+// checa se o número digitado já existe na array
 function isDuplicate() {
     let num = Number(numero.value)
     if (numeros.includes(num)) {
@@ -12,6 +13,7 @@ function isDuplicate() {
     }
 }
 
+// checa se o que foi digitado é um número
 function isNumber() {
     if (numero.value == "") {
         window.alert("Valor inválido!")
@@ -21,6 +23,7 @@ function isNumber() {
     }
 }
 
+// checa se o número está entre 1 e 100
 function isInRange() {
     let num = Number(numero.value)
     if (num > 0 && num <= 100) {
@@ -31,6 +34,7 @@ function isInRange() {
     }
 }
 
+// imprime o número digitado na lista html e adiciona na array
 function adicionar() {
     let num = Number(numero.value)
     if (isNumber() == true && isInRange() == true) {      
@@ -38,8 +42,9 @@ function adicionar() {
         numeros.push(`${num}`)
     } 
 }
-
+ 
 function finalizar() {
+    //chama todas as funções que imprimem os resultados na div
     total()
     maior()
     menor()
