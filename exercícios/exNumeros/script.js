@@ -3,6 +3,7 @@ let lista = document.getElementById("lista")
 let opt = document.querySelector("#lista")
 let numero = document.getElementById("num")
 let numeros = []
+let sum = 0
 
 function isDuplicate() {
     let num = Number(numero.value)
@@ -38,10 +39,38 @@ function adicionar() {
     } 
 }
 
-
-
 function finalizar() {
-    for (let i = 0; i< numeros.length; i++) {
-        res.innerHTML += `${numeros[i]}<p>`
-    }
+    total()
+    maior()
+    menor()
+    soma()
+    media()
 }
+
+function total() {
+    res.innerHTML += `<p>Ao todo, temos ${numeros.length} números cadastrados.</p>`
+}
+
+function maior() {
+    let maior = numeros.sort()
+    res.innerHTML += `<p>O maior número informado foi ${numeros.slice(-1).pop()}.</p>`
+}
+
+function menor() {
+    let men = numeros.sort()
+    res.innerHTML += `<p>O menor número informado foi ${numeros[0]}.</p>`
+}
+
+function soma() {
+    for (let i in numeros) {
+        sum += Number(numeros[i])
+    }
+    res.innerHTML += `<p>Somando todos os valores, temos ${sum}.</p>`
+    return sum
+}
+
+function media() {
+    let media = sum / numeros.length
+    res.innerHTML += `A média dos valores digitados é ${media}.`
+}
+
