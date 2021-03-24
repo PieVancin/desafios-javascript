@@ -30,18 +30,28 @@ function adicionar() {
     if (isInRange(numero.value) && !isDuplicate(numero.value, numeros)) {      
         opt.innerHTML += `<option value="${num}">Valor ${num} adicionado.</option>`
         numeros.push(`${num}`)
+        // limpa o resultado quando um novo valor é adicionado
+        res.innerHTML = ''
     } else {
         window.alert("Erro: Valor inválido ou já encontrado na lista. Digite um numero de 1 a 100!")
     }
+    // limpa o input sempre que é adicionado um novo número
+    numero.value = ''
+    num.focus()
 }
  
 function finalizar() {
-    //chama todas as funções que imprimem os resultados na div
-    total()
-    maior()
-    menor()
-    soma()
-    media()
+    if (numeros.length == 0) {
+        window.alert(`Adicione valores antes de finalizar!`)
+    } else {
+        res.innerHTML = ''
+        //chama todas as funções que imprimem os resultados na div
+        total()
+        maior()
+        menor()
+        soma()
+        media()
+    }
 }
 
 function total() {
