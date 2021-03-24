@@ -7,7 +7,7 @@ let sum = 0
 
 // checa se o número digitado já existe na array
 function isDuplicate(n, l) {
-    if (l.indexOf(Number(n)) != -1) {
+    if (l.indexOf(n) != -1) {
         return true
     } else {    
         return false
@@ -29,7 +29,6 @@ function adicionar() {
     let num = Number(numero.value)
     if (isInRange(numero.value) && !isDuplicate(numero.value, numeros)) {      
         opt.innerHTML += `<option value="${num}">Valor ${num} adicionado.</option>`
-        res.innerHTML += `${isDuplicate(numero.value, numeros)}`
         numeros.push(`${num}`)
     } else {
         window.alert("Erro: Valor inválido ou já encontrado na lista. Digite um numero de 1 a 100!")
