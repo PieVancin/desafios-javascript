@@ -1,0 +1,720 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>JavaScript</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a2c91b00-f743-4ad1-89dc-2bd58962903c" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💛</span></div><h1 class="page-title">JavaScript</h1></header><div class="page-body"><figure id="b5128734-de34-4fc6-8b55-fa2f58f7c66c"><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Curso Grátis de JavaScript e ECMAScript para Iniciantes</div><div class="bookmark-description">Curso de linguagem JavaScript, voltado para iniciantes e para quem quiser aprender mais sobre ECMAScript, a versão padronizada do JS. Em um curso patrocinado...</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/3748dff5/img/favicon.ico" class="icon bookmark-icon"/>https://www.youtube.com/playlist?list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1</div></div><img src="https://i.ytimg.com/vi/BXqUH86F-kA/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLAvAWQ0y1SqWDoFaPNLfXWtTA1LYw&amp;days_since_epoch=18674" class="bookmark-image"/></a></figure><p id="fe1cb358-1b84-4054-a6f6-0d7d44b8c086" class="">
+</p><ul id="b55da3a1-864a-4199-bb87-dcfd1f536962" class="toggle"><li><details open=""><summary>Exercícios</summary><ul id="64ba5290-c92f-4ad5-b4dd-f0c92969642c" class="toggle"><li><details open=""><summary><strong>Qual é a diferença entre usar =, == e === em códigos escritos em JS?</strong></summary><p id="a435dbc8-a201-4463-91fb-8f1d16582e15" class="">O sinal de = serve para atribuir um atributo à uma variável, propriedade etc. exemplo: <strong>var idade</strong> <strong>= 20. </strong></p><p id="f1972a0e-75c9-4bc1-9d9d-090a4e747639" class="">O igual duplo (<strong>==) </strong>serve para comparar duas variáveis, sem considerar os seus tipos. exemplo: <strong>21 == &#x27;21&#x27;</strong> <strong>retorna True, </strong>pois o número 21 e a string 21 tem o mesmo conteúdo.</p><p id="7e998c6a-0372-4b98-a058-67fd34fa9cb5" class="">Agora, se quisermos comparar se duas variáveis são iguais <strong>e tem o mesmo tipo, </strong>usamos o sinal de igual triplo (===). exemplo: &#x27;<strong>Pierre&#x27; === &#x27;Pierre&#x27; retorna True</strong>, pois ambos são strings e tem o mesmo valor.</p></details></li></ul><ul id="ecd4b8c8-4ebb-41ca-b397-093a59cea752" class="toggle"><li><details open=""><summary><strong>Em uma mesma expressão, temos os operadores || e &amp;&amp;. Quem eu resolvo primeiro?</strong></summary><p id="eb6a41e8-d316-4994-b616-03f014711920" class="">O sinal de conjunção <strong>&amp;&amp; </strong>sempre é resolvido antes do sinal de disjunção <strong>||.</strong></p></details></li></ul></details></li></ul><ul id="a30a4f7e-4431-440a-9557-5efbfccf4ea1" class="toggle"><li><details open=""><summary>Módulo A</summary><ul id="a14cef06-2035-45a1-a5e1-78700ff528f3" class="toggle"><li><details open=""><summary>Exercícios</summary><ul id="aa51ac9f-5651-4bd3-91f4-dd4a4280167b" class="toggle"><li><details open=""><summary>Você sabe a diferença entre um cliente e um servidor para a internet?</summary></details></li></ul><ul id="6317f050-39f4-4f5a-b340-645d10a0ff22" class="toggle"><li><details open=""><summary>Para que serve HTML, CSS e JavaScript?</summary></details></li></ul><ul id="cf0fb5e2-a98c-4262-96c6-55a3b8021384" class="toggle"><li><details open=""><summary>Cite 4 sites que fazem uso do JavaScript</summary><p id="1074d17e-be70-4c08-928b-d21003dca0e7" class="">Existem vários, como o Facebook, YouTube, Google, Notion etc.</p></details></li></ul><ul id="e6ce8f75-a8ca-49b3-950f-f9806a451a6b" class="toggle"><li><details open=""><summary>Sabe a empresa que criou o JavaScript?</summary></details></li></ul><ul id="ef43b727-a4dc-49a3-b8cd-4ef1e8bfb61e" class="toggle"><li><details open=""><summary>Java e JavaScript possuem alguma relação?</summary></details></li></ul><ul id="9adbf6f4-6b7c-4fa5-8d57-4911bc9fcd81" class="toggle"><li><details open=""><summary>O que o ECMAScript tem a ver com o JavaScript?</summary></details></li></ul><ul id="9d752bba-fba8-4b18-90dc-502047f5f660" class="toggle"><li><details open=""><summary></summary></details></li></ul><p id="15d96c97-174a-4df1-bf32-73ab94095667" class="">
+</p></details></li></ul><h1 id="c08e810f-de70-4d4f-befe-0c8f3df7b2e9" class="">Primeiros Scripts</h1><p id="d9062f8a-0f12-43b5-89ea-28a0d850ab71" class="">
+</p><pre id="9a566098-41e2-4c3e-ad21-bbd93d646654" class="code"><code>window.alert(&#x27;Olá&#x27;) //Mostra uma janela de alerta ao carregar o site
+window.confirm() //Mostra um janela de confirmação ao carregar o site
+window.prompt(&#x27;Qual o seu nome?&#x27;) //Mostra uma janela com uma barra de resposta</code></pre><p id="af145048-ee29-428e-a7fb-1d645851dbe3" class="">
+</p></details></li></ul><ul id="87273c3f-2123-4f47-a73b-714c49c179bf" class="toggle"><li><details open=""><summary>Módulo B</summary><ul id="e0d2f93e-8f77-4c88-95d5-a06556cea741" class="toggle"><li><details open=""><summary>Exercícios</summary><ul id="076b06a8-ec81-4c71-9346-796f17c19da0" class="toggle"><li><details open=""><summary>Sabe diferenciar HTML, CSS e JavaScript dentro de um código?</summary></details></li></ul><ul id="877eb675-fa7e-4684-8d25-cc5d41ce1641" class="toggle"><li><details open=""><summary>Sabe disparar alertas, confirmações e perguntas?</summary></details></li></ul><ul id="da3aae7b-fe85-42e3-a1bd-dbfa845216fb" class="toggle"><li><details open=""><summary>O que é uma variável?</summary></details></li></ul><ul id="71567d73-1e50-4256-a3fd-dba8def73ca3" class="toggle"><li><details open=""><summary>Como declarar uma variável numérica inteira ou real no JS?</summary></details></li></ul><ul id="81dcfefb-353d-4fbb-a8b0-c5259f6644c7" class="toggle"><li><details open=""><summary>Quais são os tipos primitivos do JS?</summary></details></li></ul><ul id="06cc5fd0-b922-43c7-adfc-8149815caeb8" class="toggle"><li><details open=""><summary>O que significa colocar o valor null dentro de uma variável?</summary></details></li></ul><ul id="1b0b7d4e-fefa-4d16-a0f3-342b9b9e61ed" class="toggle"><li><details open=""><summary>Como é possível guardar o valor digitado em um prompt() dentro de uma variável?</summary></details></li></ul><ul id="6a4ce491-47e0-41bb-92e0-94b9361c3f0d" class="toggle"><li><details open=""><summary>Como fazer com que um número digitado em um prompt() possa ser usado em cálculos?</summary></details></li></ul><ul id="c9a5c10b-276a-421d-a3b1-75204d694995" class="toggle"><li><details open=""><summary>Como transformar um texto todo para letras MAIÚSCULAS?</summary></details></li></ul><ul id="3200bd1e-0ec9-4884-89e4-92c141f637f9" class="toggle"><li><details open=""><summary>Parar que serve o operador % em JS? Seria para calcular porcentagem?</summary></details></li></ul><ul id="ed2de6d8-21c5-4739-ae07-c905ba897a48" class="toggle"><li><details open=""><summary>Se uma variável n está valendo 10 e executamos um <strong>n += 5, </strong>qual será seu novo valor?</summary></details></li></ul><ul id="7436e4fe-dfb9-43f5-a3ce-0ca4c50d0a21" class="toggle"><li><details open=""><summary>Para que servem os operadores <strong>— e ++ </strong>?</summary></details></li></ul></details></li></ul><h1 id="a9419943-8e1e-4f5b-96c8-40b2b1b62838" class="">`${Manipulação de Dados}`</h1><ul id="21cba4db-5bfa-4bef-b043-632365958fa4" class="bulleted-list"><li>Os principais tipos primitivos do JavaScript são: <strong>number </strong>e <strong>string</strong>.</li></ul><h2 id="20f8f9ae-1296-4649-81c8-99b751c2552e" class="">Guardando os dados de um prompt</h2><pre id="9d17ee51-06e6-4971-ac5a-a4d5e258854b" class="code"><code>//armazena o que foi digitado na variável nome
+var nome = window.prompt(&#x27;Qual o seu nome?&#x27;)
+//Concatena a frase com a variável
+window.alert(&#x27;É um grande prazer te conhecer, &#x27; + nome)</code></pre><p id="1835b062-db1d-4e50-b0b1-4cde398cea29" class="">
+</p><h2 id="a0c390c3-148d-4d21-ae55-18a0178cfd4a" class="">Concatenação e Conversão de tipos</h2><p id="76e10de8-267d-41dd-acc7-d1e9e586fff3" class="">O símbolo <strong>+</strong>, além de ser usado para adição, também é usado para concatenar dados</p><ul id="e02722ec-0b0f-4d30-a9aa-2c5ae4e88333" class="bulleted-list"><li>Os comandos <strong>window.prompt, window.alert</strong>, etc. <strong>sempre retornam string. </strong>Se quisermos somar  o que foi digitado, precisamos <strong>converter  o input de string para number. Além dos comandos parseInt e parseFloat, podemos usar um novo recurso chamando apenas de Number:</strong><pre id="b24eda91-5c35-4eda-838f-30d5beca4306" class="code"><code>var n1 = (window.prompt(&#x27;Digite um número&#x27;)) //String
+var n2 = (window.prompt(&#x27;Digite outro número&#x27;)) //String
+var s = n1 + n2
+window.alert(&#x27;A soma dos valores é&#x27; + s) //Concatenação, irá retornar um numero depois o outro
+
+var n1 = Number(window.prompt(&#x27;Digite um número&#x27;)) //String para Number
+var n2 = Number(window.prompt(&#x27;Digite outro número&#x27;)) //String para Number
+var s = n1 + n2
+window.alert(&#x27;A soma dos valores é&#x27; + s) //Irá retornar a soma
+	</code></pre></li></ul><p id="c3f45402-3515-4e7f-89c7-006072c37a9d" class="">
+</p><h1 id="54d913bf-fe5a-41b2-8abd-4f6e4f388c11" class="">`${Template String}`</h1><p id="3708f86e-4b71-4a5c-819b-92750d1b2247" class="">É uma forma de usar um <strong>Placeholder, </strong>assim com na linguagem C e Python. Assim é possível colocar uma string dentro de uma frase, usando a sintaxe a seguir:</p><pre id="7fd05b34-bc2c-4313-8307-3acec3677662" class="code"><code>var s = &#x27;JavaScript&#x27;
+&#x27;Eu estou aprendendo s&#x27; //não faz interpolação
+&#x27;Eu estou aprendendo &#x27; + s //usa concatenação
+`Eu estou aprendendo ${s}` //usa template string
+
+//outro exemplo
+var nome = &#x27;Pierre&#x27;
+var idade = 20
+var nota = 10
+&#x27;O aluno &#x27; + nome + &#x27; com &#x27; + idade + &#x27; anos tirou a nota &#x27; + nota //usando concatenação
+`O aluno ${nome} com ${idade} anos tirou a nota ${nota}` //usando template string</code></pre><p id="5306fcc6-2c19-4534-a1ce-2a9db8fddb70" class="">
+</p><h1 id="9ce4d89c-f518-494f-86dc-0e6e818abac5" class="">Print</h1><p id="2d42d7bf-a1a1-4323-8d9d-308dc638a181" class="">Para usarmos o print, igual o <strong>print</strong> do Python e o <strong>printf </strong>do C, usamos a seguinte sintaxe:</p><pre id="953b20fb-f046-455f-b345-417e6916f84b" class="code"><code>var nome = window.prompt(&#x27;Qual o seu nome?&#x27;)
+document.writeln(`Olá ${nome}!`) //writeln é igual o println e prinfln, significa 
+//&quot;Next Line&quot;</code></pre><p id="8626c7d7-ff3c-4ae8-9f0d-a4e9510a15c5" class="">
+</p><h1 id="fd271745-4430-4034-9d2f-2faf3ecc5076" class="">Operadores</h1><h2 id="f6ecc82d-ddea-4eee-9aa3-d9410ab8f102" class="">Operadores Aritméticos</h2><pre id="87624539-916e-497d-b56a-bbe9c9a4666f" class="code"><code>+ // Adição
+- // Subtração
+* // Multiplicação
+** // Potência</code></pre><p id="36f17d50-396f-4f8f-80ba-977705be9163" class="">
+</p><h2 id="2e4a9294-d6e4-44e7-8012-ea9a9f5a9404" class="">Operadores de Atribuição</h2><ul id="1bd2aa00-ab91-4da5-abfc-32a076d609cb" class="bulleted-list"><li>+=  ou ++</li></ul><ul id="970fd498-3cbd-416f-b4d5-2106a52a3279" class="bulleted-list"><li>-= ou  - -</li></ul><p id="e85bc49c-2ec6-4040-96ab-2e736c5f90d1" class="">
+</p><h2 id="fec899ad-4b3d-4941-8cbf-9107d5116908" class="">Ordem de Precedência</h2><p id="1766f05b-1c81-431e-86de-9704d983282f" class="">No JavaScript, a precedência de operadores funciona igual a matemática básica, primeiro o que está entre <strong>parênteses</strong>, depois a <strong>potência</strong>, depois a <strong>multiplicação</strong>, <strong>divisão </strong>e o <strong>resto</strong>, e por último <strong>adição </strong>e <strong>subtração</strong>.</p><p id="02bd113e-d15f-4747-9d29-46c3514e5f83" class="">
+</p><h2 id="2ea25abf-fe1d-4b46-840a-071e5f41cb25" class="">Operadores Relacionais</h2><pre id="4653559f-8240-46db-ac0c-5481c0c51c47" class="code"><code>5 &gt; 2 = true
+7 &lt; 4 = false
+8 &gt;= 8 = true
+9 &lt;= 7 = false
+5 == 5 = true
+4 != 4 = false</code></pre><ul id="13686026-18ff-4509-b952-a3a05ac3a348" class="bulleted-list"><li>Os operadores relacionais do JavaScript <strong>não testam o tipo. Para comparar se duas variáveis são do mesmo tipo, é usado o operador &#x27;===&#x27;.</strong></li></ul><p id="be448df8-721e-4605-906f-392b2d46b0a3" class="">
+</p><h2 id="e4882aa6-80c4-4619-80d1-319ff5a2309d" class="">Operadores Lógicos</h2><ul id="5b5a5073-f141-4b97-afdd-b3809be3e4b9" class="bulleted-list"><li>Negação (ou NOT): usamos o símbolo <strong>!</strong></li></ul><ul id="77b2fe59-d71c-4b99-abf9-a471ed952d2f" class="bulleted-list"><li>Conjunção (ou AND): usamos o símbolo <strong>&amp;&amp;</strong></li></ul><ul id="fe23017a-56ca-4b1d-986b-abd8d01e684c" class="bulleted-list"><li>Disjunção (ou OR): usamos o símbolo <strong>||</strong></li></ul><p id="84f4a751-7968-4cf3-8992-3a29b6d268e3" class="">Primeiro o <strong>!</strong>, depois o <strong>&amp;&amp;</strong> e depois o <strong>||</strong></p><p id="6904c94c-d092-4634-8d02-717463e75fb7" class="">
+</p><h2 id="055a20f6-83fb-48f9-8809-b5e6ea659bb9" class="">Operadores Ternários</h2><p id="0fa0e87d-0e3c-4d91-a75e-cab28f6792e3" class="">São como os <strong>If&#x27;s</strong> das outras linguagens, usando ? e :</p><pre id="74c994c2-0349-4311-8f84-7eee80dd661b" class="code"><code>media &gt; 7 ? &#x27;Aprovado&#x27; : &#x27;Reprovado&#x27;
+// (condição) ? (se sim faça isso) : (se não faça isso)</code></pre><p id="518f216e-a892-433d-b11d-d98911a97583" class="">
+</p></details></li></ul><ul id="60ee0b02-8b2e-4024-821e-834321d45fe3" class="toggle"><li><details open=""><summary>Módulo C</summary><h1 id="2cc01702-367e-4ace-8834-40e815442844" class="">DOM</h1><p id="0ab83233-a7a9-4480-b3bc-894f5dc9abe7" class="">Document Object Model</p><p id="dccc8461-2ee8-4fca-ba11-ec00ab64ed76" class="">Árvore DOM:</p><p id="2f2d9ef0-0e78-478f-b667-ded4d0bf9270" class="">
+</p><figure id="a8fa4598-ae90-48f7-92ab-487660312a5e" class="image"><a href="JavaScript%20a8fa4598ae9048f792ab487660312a5e/2021-03-03.png"><img style="width:430px" src="JavaScript%20a8fa4598ae9048f792ab487660312a5e/2021-03-03.png"/></a></figure><p id="7973bdb7-54fe-407d-9bf5-54f127690927" class="">
+</p></details></li></ul><ul id="20a131f8-85e8-4353-b0ee-2ac14bd7fc7b" class="toggle"><li><details open=""><summary>Módulo D</summary><h1 id="c80dc0de-cea9-4f17-a97c-3bfdb0ac2387" class="">Condições</h1><p id="67c8e3b0-2af4-410c-851d-74abe243b849" class="">As condições do JavaScript são muito parecidas com as da linguagem C.</p><h2 id="eac4f67d-9d96-42bb-96b1-2ef3431d1bc5" class="">Condição Múltipla</h2><pre id="cf579016-9ec9-497f-a048-d604d465287d" class="code"><code>switch (expressão) {
+	case valor 1:
+			// faça tal coisa
+			break
+	case valor 2:
+			// faça tal coisa
+			break
+	default:
+			// faça tal coisa
+			break
+}</code></pre><p id="01b2ab6b-caae-44a7-a519-e836c0555408" class="">
+</p><h1 id="03263375-7f21-4e0b-9ea1-d43e7b2ce89a" class="">Horários e datas</h1><p id="0645ae02-0b3d-4fed-ab22-e1960573a2b7" class="">Podemos chamar o objeto <strong>Date()</strong> para usarmos informações como<strong> data, horário, dia da semana, minutos, segundos </strong>etc. Ele armazena todas essas informações e podemos chama-las em uma variável:</p><pre id="22a60b16-4054-4c8a-9cf9-51993ec05174" class="code"><code>var agora = new Date()
+var diaSem = agora.getDay()</code></pre><p id="3a6eacc9-6f51-4fc3-ba78-27ca22f4b874" class="">
+</p><h1 id="38c1d0be-02a5-43f0-81b1-eacab77a51f2" class="">Switch</h1><p id="5a9afa7e-2d07-42c1-8459-5afec1baf508" class="">É usado quando queremos executar instruções diferentes para cada valor em forma de <strong>cases</strong>. Devemos sempre colocar um <strong>Break</strong> ao final de cada case para que o computador saiba que deve parar ali e seguir com o resto do código que vier depois do switch. Ele é capaz de avaliar <strong>Números Inteiros</strong>, <strong>Caracteres e Strings.</strong></p><pre id="79412735-1d66-4d0a-862b-9e99e491e9c6" class="code"><code>var agora = new Date()
+    var diaSem = agora.getDay()
+
+    switch(diaSem) {
+        case 0:
+            console.log(&#x27;Domingo&#x27;)
+            break
+        case 1:
+            console.log(&#x27;Segunda&#x27;)
+            break
+        case 2:
+            console.log(&#x27;Terça&#x27;)
+            break
+        case 3:
+            console.log(&#x27;Quarta&#x27;)
+            break
+        case 4:
+            console.log(&#x27;Quinta&#x27;)
+            break
+        case 5:
+            console.log(&#x27;Sexta&#x27;)
+            break
+        case 6:
+            console.log(&#x27;Sábado&#x27;)
+            break
+        default:
+            console.log(&#x27;Erro: dia inválido&#x27;)
+            break
+    }</code></pre><p id="d2729482-3afc-4f3d-b38d-44508d0156cf" class="">
+</p></details></li></ul></div></article></body></html>
