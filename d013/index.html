@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 013</title>
+    <style>
+        button {
+            min-height: 4rem;
+            min-width: 5rem;
+        }
+
+        #resultado {
+            padding-top: 1rem;
+        }
+
+        #red {
+            display: inline;
+            background-color: red;
+        }
+
+        #yellow {
+            display: inline;
+            background-color: yellow;
+        }
+
+        #green {
+            display: inline;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do Aluno</h1>
+    <button onclick="calculo()">Entrar com as notas</button>
+    <div id="resultado">Clique no botão acima para informar as notas do aluno.</div>
+    <script>
+        function calculo() {
+            var nome = window.prompt(`Qual é o nome do aluno?`)
+            var nota1 = Number(window.prompt(`Primeira nota de ${nome}:`))
+            var nota2 = Number(window.prompt(`Segunda nota de ${nome}:`))
+            var media = Number((nota1+nota2)/2)
+            var res = document.getElementById("resultado")
+
+            if (media<3) {
+                res.innerHTML = 
+                `<h1>Analisando a situação de ${nome}</h1><br>
+                Com as notas ${nota1} e ${nota2}, a média é ${media}<br>
+                Com média abaixo de 3,0, o aluno está <div id="red">REPROVADO</div>`
+            } else if ((media >=3) && (media <6)) {
+                res.innerHTML =
+                `<h1>Analisando a situação de ${nome}</h1><br>
+                Com as notas ${nota1} e ${nota2}, a média é ${media}<br>
+                Com média entre 3,0 e 6,0, o aluno está em <div id="yellow">RECUPERAÇÃO</div>`
+            } else {
+                res.innerHTML =
+                `<h1>Analisando a situação de ${nome}</h1><br>
+                Com as notas ${nota1} e ${nota2}, a média é ${media}<br>
+                Com média acima de 6,0, o aluno está <div id="green">APROVADO</div>`
+            }
+        }
+    </script>
+</body>
+</html>
