@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 010</title>
+    <style>
+        button {
+            min-height: 4rem;
+            min-width: 5rem;
+        }
+
+        #resultado {
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resolvendo Bhaskara</h1>
+    <button onclick="calculo()">Calcular</button>
+    <div id="resultado">
+        Considerando uma equação no formato <b>ax &#178; + bx + c</b> = 0, aperte o botão acima para calcular o valor de &#8710;.
+    </div>
+    <script>
+        function calculo() {
+            var a = window.prompt('Qual é o valor de a?')
+            var b = window.prompt('Qual é o valor de b?')
+            var c = window.prompt('Qual é o valor de c?')
+            var delta = (b*b)-4*a*c
+            document.getElementById("resultado").innerHTML =
+            `A equação atual é <b>${a}x&#178; + ${b}x + ${c} = 0</b><br>
+             O Cálculo realizado será <b>&#8710; = ${b}x&#178; - 4.${a}.${c}</b><br>
+             O valor calculado foi <b>&#8710; = ${delta}</b>`
+        }
+    </script>
+</body>
+</html>
